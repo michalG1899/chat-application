@@ -1,4 +1,4 @@
-package org.example;
+package org.example.chat_client;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -10,8 +10,8 @@ public class ClientRun {
         System.out.println("Enter your username for the group chat: ");
         String username = scanner.nextLine();
         Socket socket = new Socket("localhost", 1234);
-        Client client = new Client(socket, username);
-        client.listenForMessage();
-        client.sendMessage();
+        ChatClient chatClient = new ChatClient(socket, username);
+
+        chatClient.listenForMessage();
     }
 }
