@@ -2,18 +2,19 @@ package org.example.chat_server;
 
 import lombok.Data;
 import lombok.extern.java.Log;
-import org.example.chat_client.message.readers.MessageReader;
-import org.example.chat_client.message.model.MessageType;
-import org.example.chat_client.message.writers.MessageWriter;
 import org.example.chat_client.message.model.ChatMessage;
+import org.example.chat_client.message.model.MessageType;
+import org.example.chat_client.message.readers.MessageReader;
+import org.example.chat_client.message.writers.MessageWriter;
 
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Objects;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import static org.example.chat_client.message.model.MessageType.*;
+import static org.example.chat_client.message.model.MessageType.FILE;
+import static org.example.chat_client.message.model.MessageType.JOIN;
+import static org.example.chat_client.message.model.MessageType.SWITCH;
 
 @Log
 @Data

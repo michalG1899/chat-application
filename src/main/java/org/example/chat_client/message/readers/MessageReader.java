@@ -1,25 +1,22 @@
 package org.example.chat_client.message.readers;
 
 import lombok.extern.java.Log;
-import org.example.chat_client.file.FileSender;
-import org.example.chat_client.message.model.MessageType;
-import org.example.chat_client.message.model.ChatMessage;
 import org.example.chat_client.customstreams.CustomObjectInputStream;
+import org.example.chat_client.file.FileSender;
+import org.example.chat_client.message.model.ChatMessage;
+import org.example.chat_client.message.model.MessageType;
 
 import java.io.IOException;
 import java.net.Socket;
 import java.util.function.Consumer;
-import java.util.logging.Logger;
 
-import static java.rmi.server.LogStream.log;
 
 @Log
 public class MessageReader {
 
-    private final Logger logger = Logger.getLogger(getClass().getName());
     private final Consumer<ChatMessage> onText;
-    private CustomObjectInputStream reader;
     private final Runnable onExit;
+    private CustomObjectInputStream reader;
 
     public MessageReader(Socket socket, Consumer<ChatMessage> onText, Runnable onExit) {
         this.onText = onText;
@@ -27,7 +24,7 @@ public class MessageReader {
         try {
             reader = new CustomObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
-            log("Problem with input stream: " + e.getMessage());
+            log.info("Problem with input stream: " + e.getMessage());
         }
     }
 
@@ -43,7 +40,7 @@ public class MessageReader {
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
-            log("Problem with reading message: " + e.getMessage());
+            log.info("Problem with reading message: " + e.getMessage());
         } finally {
             if (onExit != null) {
                 onExit.run();
