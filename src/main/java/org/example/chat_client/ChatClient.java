@@ -37,7 +37,7 @@ public class ChatClient {
         return """
                 #1 - JOIN COMMON GROUP CHAT
                 #2 - CREATE/JOIN PRIVATE ROOM (#2 <room_name>)
-                #3 - SEND FILE IN ROOM (#3 <file_name> <recipient_nick>)
+                #3 - SEND FILE IN ROOM (#3 <file_name> <recipient_username>)
                 """;
     }
 }
