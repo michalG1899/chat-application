@@ -9,7 +9,4 @@ public class CustomObjectInputStream extends ObjectInputStream {
     public CustomObjectInputStream(InputStream in) throws IOException {
         super(in);
     }
-    @Override
-    protected void readStreamHeader() throws IOException {
-    }
 }

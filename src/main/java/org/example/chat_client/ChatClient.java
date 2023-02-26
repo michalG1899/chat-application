@@ -2,10 +2,10 @@ package org.example.chat_client;
 
 
 import lombok.extern.java.Log;
+import org.example.chat_client.message.model.MessageStrategy;
 import org.example.chat_client.message.readers.ConsoleReader;
 import org.example.chat_client.message.readers.MessageReader;
 import org.example.chat_client.message.writers.MessageWriter;
-import org.example.chat_client.message.model.MessageStrategy;
 
 import java.net.Socket;
 import java.util.function.Consumer;
@@ -35,7 +35,7 @@ public class ChatClient {
 
     private String showOptions() {
         return """
-                #1 - JOIN COMMON GROUP CHAT
+                #1 - JOIN PUBLIC GROUP CHAT
                 #2 - CREATE/JOIN PRIVATE ROOM (#2 <room_name>)
                 #3 - SEND FILE IN ROOM (#3 <file_name> <recipient_username>)
                 """;
